@@ -1,23 +1,20 @@
-import { useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { ThemeProvider } from "./context/ThemeContext";
 import Home from "./pages/Home";
-import { NameContext } from "./contexts/Main";
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Details from "./pages/Details";
+import About from "./pages/About";
 
 function App() {
-  const [namePoke, setNamePoke] = useState("");
-
   return (
-    <>
-      <NameContext.Provider value={namePoke}>
-        <Router>
-          <Routes>
-            <Route index element={<Home setNamePoke={setNamePoke} />} />
-            <Route path="details" element={<Details />} />
-          </Routes>
-        </Router>
-      </NameContext.Provider>
-    </>
+    <ThemeProvider>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/details/:name" element={<Details />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+      </Router>
+    </ThemeProvider>
   );
 }
 
