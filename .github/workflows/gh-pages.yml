@@ -29,13 +29,16 @@ jobs:
         with:
           node-version: 20
 
+      - name: Enable Corepack (Yarn)
+        run: corepack enable
+
       - name: Install dependencies
-        run: npm ci
+        run: yarn install --frozen-lockfile
 
       - name: Build project (GH Pages Base Path)
-        run: npm run build -- --base=/${{ github.event.repository.name }}/
+        run: yarn build -- --base=/${{ github.event.repository.name }}/
 
-      - name: Copy index.html to 404.html (for client side routing)
+      - name: Copy index.html to 404.html (for client-side routing)
         run: cp dist/index.html dist/404.html
 
       - name: Setup Pages
