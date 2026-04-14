@@ -53,11 +53,14 @@ export default function LanguageSelector({ dark }) {
 
       {isOpen && (
         <div
-          className={`absolute right-0 mt-2 w-32 rounded-2xl p-1.5 shadow-xl border z-50 animate-scale-in origin-top-right backdrop-blur-xl ${
-            dark
-              ? 'bg-gray-905/90 border-white/10'
-              : 'bg-white/90 border-slate-100'
+          className={`absolute right-0 mt-2 w-32 rounded-2xl p-1 shadow-xl border z-50 animate-scale-in origin-top-right backdrop-blur-xl transition-all duration-300 ${
+            dark 
+              ? 'bg-[#0f0f1a]/fb border-white/10 text-white' 
+              : 'bg-white/fb border-slate-200 text-slate-800'
           }`}
+          style={{ 
+            backgroundColor: dark ? 'rgba(15, 15, 26, 0.98)' : 'rgba(255, 255, 255, 0.98)'
+          }}
         >
           {languages.map((lang) => (
             <button
