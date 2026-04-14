@@ -24,10 +24,10 @@ export default function Nav({ inputValue, setInputValue, handleSearch }) {
           ? dark ? "rgba(15,15,25,0.92)" : "rgba(255,255,255,0.88)"
           : "transparent",
         backdropFilter: navBg ? "blur(20px)" : "none",
-        borderBottom: navBg
-          ? dark ? "1px solid rgba(255,255,255,0.08)" : "1px solid rgba(0,0,0,0.06)"
-          : "none",
-        boxShadow: navBg ? "0 2px 20px rgba(0,0,0,0.08)" : "none",
+        borderBottom: dark
+          ? `1px solid ${navBg ? "rgba(255,255,255,0.08)" : "transparent"}`
+          : `1px solid ${navBg ? "rgba(0,0,0,0.06)" : "transparent"}`,
+        boxShadow: navBg ? "0 4px 20px rgba(0,0,0,0.08)" : "none",
       }}
     >
       <div className="max-w-7xl mx-auto px-5 md:px-10 py-3.5 flex items-center justify-between gap-4">
@@ -102,7 +102,7 @@ export default function Nav({ inputValue, setInputValue, handleSearch }) {
           <button
             onClick={toggle}
             aria-label="Toggle dark mode"
-            className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 flex-shrink-0 ${
+            className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110 active:scale-95 flex-shrink-0 animate-soft-bounce ${
               dark
                 ? "bg-white/10 text-yellow-300 hover:bg-white/20"
                 : "bg-slate-100 text-slate-600 hover:bg-slate-200"
