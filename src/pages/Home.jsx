@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Nav from "../components/Nav";
 import HeroSection from "../components/HeroSection";
+import FilterBar from "../components/FilterBar";
 import Body from "../components/Body";
 import Footer from "../components/Footer";
 import { useTheme } from "../context/ThemeContext";
@@ -8,11 +9,20 @@ import { useTheme } from "../context/ThemeContext";
 export default function Home() {
   const [searchTerm, setSearchTerm] = useState("");
   const [inputValue, setInputValue] = useState("");
+  const [filterType, setFilterType] = useState("All");
+  const [filterGen, setFilterGen] = useState("All");
+  const [filterMetaOnly, setFilterMetaOnly] = useState(false);
   const { dark } = useTheme();
 
   const handleSearch = (e) => {
     e.preventDefault();
     setSearchTerm(inputValue.trim());
+    // reset filters when searching
+    if (inputValue.trim()) {
+      setFilterType("All");
+      setFilterGen("All");
+      setFilterMetaOnly(false);
+    }
   };
 
   return (
@@ -28,7 +38,15 @@ export default function Home() {
         handleSearch={handleSearch}
       />
       <div className="flex-1">
-        <Body searchTerm={searchTerm} />
+        <Body 
+          searchTerm={searchTerm} 
+          filterType={filterType} 
+          setFilterType={setFilterType}
+          filterGen={filterGen} 
+          setFilterGen={setFilterGen}
+          filterMetaOnly={filterMetaOnly} 
+          setFilterMetaOnly={setFilterMetaOnly}
+        />
       </div>
       <Footer />
     </div>
