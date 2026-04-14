@@ -28,18 +28,13 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-
-      - name: Enable Corepack (Yarn)
-        run: corepack enable
+          cache: 'npm'
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: npm install
 
-      - name: Build project (GH Pages Base Path)
-        run: yarn build
-
-      - name: Copy index.html to 404.html (for client-side routing)
-        run: cp dist/index.html dist/404.html
+      - name: Build project
+        run: npm run build
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
