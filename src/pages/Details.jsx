@@ -8,6 +8,19 @@ import TcgCards from "../components/TcgCards";
 import DeckRecommendation from "../components/DeckRecommendation";
 import { useTheme } from "../context/ThemeContext";
 import { useTranslation } from "react-i18next";
+import { translateText } from "../utils/translate";
+
+const REGION_MAP = {
+  "generation-i": "Kanto",
+  "generation-ii": "Johto",
+  "generation-iii": "Hoenn",
+  "generation-iv": "Sinnoh",
+  "generation-v": "Unova",
+  "generation-vi": "Kalos",
+  "generation-vii": "Alola",
+  "generation-viii": "Galar",
+  "generation-ix": "Paldea",
+};
 
 export default function Details() {
   const { t } = useTranslation();
@@ -15,6 +28,8 @@ export default function Details() {
   const [data, setData] = useState(null);
   const [species, setSpecies] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [translatedDescription, setTranslatedDescription] = useState("");
+  const { i18n } = useTranslation();
   const { dark } = useTheme();
 
   useEffect(() => {
@@ -36,6 +51,21 @@ export default function Details() {
     fetchData();
   }, [name]);
 
+  // Get English description
+  const enDescription = species?.flavor_text_entries
+    ?.find((e) => e.language.name === "en")
+    ?.flavor_text.replace(/\f/g, " ");
+
+  useEffect(() => {
+    if (enDescription) {
+      if (i18n.language === "id") {
+        translateText(enDescription, "id").then(setTranslatedDescription);
+      } else {
+        setTranslatedDescription(enDescription);
+      }
+    }
+  }, [enDescription, i18n.language]);
+
   if (loading || !data) {
     return (
       <div className={`min-h-screen flex flex-col transition-colors duration-300 ${dark ? "bg-gray-950" : "bg-slate-50"}`}>
@@ -55,10 +85,9 @@ export default function Details() {
     data.sprites.front_default ||
     "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png";
 
-  // Get English description
-  const description = species?.flavor_text_entries
-    .find((e) => e.language.name === "en")
-    ?.flavor_text.replace(/\f/g, " ");
+  const description = translatedDescription || enDescription;
+
+  const region = species?.generation?.name ? REGION_MAP[species.generation.name] || species.generation.name : "";
 
   const maxStat = 255;
 
@@ -196,6 +225,12 @@ export default function Details() {
               {t("details.profile")}
             </h3>
             <div className="grid grid-cols-2 gap-y-8 gap-x-4">
+              <div>
+                <p className={`font-bold uppercase tracking-wider text-xs mb-2 ${dark ? "text-slate-400" : "text-slate-500"}`}>{t("details.region")}</p>
+                <p className={`font-black text-lg rounded-xl shadow-sm border px-4 py-2 inline-block capitalize ${dark ? "bg-white/10 border-white/20 text-white" : "bg-white/60 border-white/60 text-slate-800"}`}>
+                  {region.replace(/-/g, " ")}
+                </p>
+              </div>
               <div>
                 <p className={`font-bold uppercase tracking-wider text-xs mb-2 ${dark ? "text-slate-400" : "text-slate-500"}`}>{t("details.height")}</p>
                 <p className={`font-black text-lg rounded-xl shadow-sm border px-4 py-2 inline-block ${dark ? "bg-white/10 border-white/20 text-white" : "bg-white/60 border-white/60 text-slate-800"}`}>

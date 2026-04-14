@@ -28,10 +28,17 @@
     "not_found_desc": "Pokémon \"{{searchTerm}}\" tidak ada di Pokédex.",
     "load_more": "Muat Lebih Banyak"
   },
+  "filter": {
+    "element": "Elemen:",
+    "generation": "Generasi:",
+    "region": "Wilayah:",
+    "all": "Semua Elemen"
+  },
   "details": {
     "back_to_pokedex": "Kembali ke Pokédex",
     "base_stats": "Statistik Dasar",
     "profile": "Profil",
+    "region": "Wilayah",
     "height": "Tinggi",
     "weight": "Berat",
     "abilities": "Kemampuan",

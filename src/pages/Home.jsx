@@ -11,6 +11,7 @@ export default function Home() {
   const [inputValue, setInputValue] = useState("");
   const [filterType, setFilterType] = useState("All");
   const [filterGen, setFilterGen] = useState("All");
+  const [filterRegion, setFilterRegion] = useState("All");
   const [filterMetaOnly, setFilterMetaOnly] = useState(false);
   const { dark } = useTheme();
 
@@ -21,6 +22,7 @@ export default function Home() {
     if (inputValue.trim()) {
       setFilterType("All");
       setFilterGen("All");
+      setFilterRegion("All");
       setFilterMetaOnly(false);
     }
   };
@@ -44,6 +46,8 @@ export default function Home() {
           setFilterType={setFilterType}
           filterGen={filterGen} 
           setFilterGen={setFilterGen}
+          filterRegion={filterRegion}
+          setFilterRegion={setFilterRegion}
           filterMetaOnly={filterMetaOnly} 
           setFilterMetaOnly={setFilterMetaOnly}
         />

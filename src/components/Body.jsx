@@ -12,6 +12,8 @@ export default function Body({
   setFilterType,
   filterGen = "All",
   setFilterGen,
+  filterRegion = "All",
+  setFilterRegion,
   filterMetaOnly = false,
   setFilterMetaOnly,
 }) {
@@ -44,10 +46,12 @@ export default function Body({
         } else if (
           filterType !== "All" ||
           filterGen !== "All" ||
+          filterRegion !== "All" ||
           filterMetaOnly
         ) {
           let typePokemon = null;
           let genPokemon = null;
+          let regionPokemon = null;
           let metaPokemon = null;
 
           if (filterType !== "All") {
@@ -61,11 +65,21 @@ export default function Body({
           }
 
           if (filterGen !== "All") {
-            let genId = filterGen.split("-").pop(); // format is generation-i. The API takes ID or Name. "generation-i" is a valid name format too!
             const res = await axios.get(
               `${import.meta.env.VITE_POKEAPI_BASE_URL}/generation/${filterGen}`,
             );
             genPokemon = res.data.pokemon_species.map((p) => ({
+              name: p.name,
+              url: `${import.meta.env.VITE_POKEAPI_BASE_URL}/pokemon/${p.name}`,
+            }));
+          }
+
+          if (filterRegion !== "All") {
+            // Region in this app maps to Generation IDs
+            const res = await axios.get(
+              `${import.meta.env.VITE_POKEAPI_BASE_URL}/generation/${filterRegion}`,
+            );
+            regionPokemon = res.data.pokemon_species.map((p) => ({
               name: p.name,
               url: `${import.meta.env.VITE_POKEAPI_BASE_URL}/pokemon/${p.name}`,
             }));
@@ -82,6 +96,7 @@ export default function Body({
           const arraysToIntersect = [];
           if (typePokemon) arraysToIntersect.push(typePokemon);
           if (genPokemon) arraysToIntersect.push(genPokemon);
+          if (regionPokemon) arraysToIntersect.push(regionPokemon);
           if (metaPokemon) arraysToIntersect.push(metaPokemon);
 
           if (arraysToIntersect.length > 0) {
@@ -113,7 +128,7 @@ export default function Body({
       setLoading(false);
     }
     fetchInitial();
-  }, [searchTerm, filterType, filterGen, filterMetaOnly]);
+  }, [searchTerm, filterType, filterGen, filterRegion, filterMetaOnly]);
 
   const loadMore = async () => {
     if (loading) return;
@@ -186,7 +201,7 @@ export default function Body({
           </p>
         </div>
 
-        <div className="flex flex-col lg:items-end gap-4 my-auto lg:mt-0">
+        <div className="flex flex-col justify-item-center lg:items-end gap-4 sm:mx-auto lg:mx-0 sm:my-auto">
           {/* Filter Bar Inline */}
           {!searchTerm && (
             <FilterBar
@@ -194,6 +209,8 @@ export default function Body({
               setFilterType={setFilterType}
               filterGen={filterGen}
               setFilterGen={setFilterGen}
+              filterRegion={filterRegion}
+              setFilterRegion={setFilterRegion}
               filterMetaOnly={filterMetaOnly}
               setFilterMetaOnly={setFilterMetaOnly}
               dark={dark}

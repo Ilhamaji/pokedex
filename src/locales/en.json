@@ -28,10 +28,17 @@
     "not_found_desc": "Pokémon \"{{searchTerm}}\" is not in the Pokédex.",
     "load_more": "Load More"
   },
+  "filter": {
+    "element": "Element:",
+    "generation": "Generation:",
+    "region": "Region:",
+    "all": "All Elements"
+  },
   "details": {
     "back_to_pokedex": "Back to Pokédex",
     "base_stats": "Base Stats",
     "profile": "Profile",
+    "region": "Region",
     "height": "Height",
     "weight": "Weight",
     "abilities": "Abilities",
