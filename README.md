@@ -4,7 +4,7 @@
 
 A vibrant and interactive Pokémon encyclopedia. Browse, search, and view detailed stats for 1,025+ Pokémon — complete with a TCG card gallery and competitive deck recommendations for Pokémon TCG Pocket.
 
-**Live Demo:** [pokedex-ilham.netlify.app](https://pokedex-ilham.netlify.app)
+**Live Demo:** [pokedex.netlify.app](https://pokedex-ilham.netlify.app)
 
 ---
 
@@ -20,24 +20,26 @@ A vibrant and interactive Pokémon encyclopedia. Browse, search, and view detail
 
 ## 🛠️ Built With
 
-| Technology | Purpose |
-|---|---|
-| React 18 + Vite | UI Framework & Build Tool |
-| Tailwind CSS | Styling |
-| [PokéAPI](https://pokeapi.co/) | Pokémon Data |
-| [Pokémon TCG API](https://pokemontcg.io/) | Card Gallery |
-| Axios | HTTP Client |
-| React Router v6 | Client-side Routing |
+| Technology                                | Purpose                   |
+| ----------------------------------------- | ------------------------- |
+| React 18 + Vite                           | UI Framework & Build Tool |
+| Tailwind CSS                              | Styling                   |
+| [PokéAPI](https://pokeapi.co/)            | Pokémon Data              |
+| [Pokémon TCG API](https://pokemontcg.io/) | Card Gallery              |
+| Axios                                     | HTTP Client               |
+| React Router v6                           | Client-side Routing       |
 
 ## 📦 Installation
 
 1. **Clone the repository**
+
    ```bash
    git clone https://github.com/Ilhamaji/PokeDex.git
    cd PokeDex
    ```
 
 2. **Install dependencies**
+
    ```bash
    yarn install
    ```
@@ -90,4 +92,4 @@ Project: [github.com/Ilhamaji/PokeDex](https://github.com/Ilhamaji/PokeDex)
 
 ---
 
-*Disclaimer: Fan-made project. Pokémon and all related names are trademarks of Nintendo/Game Freak.*
+_Disclaimer: Fan-made project. Pokémon and all related names are trademarks of Nintendo/Game Freak._
