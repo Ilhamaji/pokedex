@@ -1,9 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useTheme } from "../context/ThemeContext";
+import { useTranslation } from "react-i18next";
 
 export default function Footer() {
   const { dark } = useTheme();
+  const { t } = useTranslation();
 
   return (
     <footer
@@ -27,7 +29,7 @@ export default function Footer() {
               Poke<span className="text-rose-500">Dex</span>
             </span>
           </Link>
-          <p className="text-xs">Explore over 1,025+ Pokémon — Built with PokeAPI & TCG API</p>
+          <p className="text-xs">{t("footer.tagline")}</p>
         </div>
 
         {/* Links */}
@@ -36,13 +38,13 @@ export default function Footer() {
             to="/"
             className={`hover:text-rose-500 transition-colors duration-200 ${dark ? "text-white/60" : "text-slate-500"}`}
           >
-            Home
+            {t("nav.home")}
           </Link>
           <Link
             to="/about"
             className={`hover:text-rose-500 transition-colors duration-200 ${dark ? "text-white/60" : "text-slate-500"}`}
           >
-            About
+            {t("nav.about")}
           </Link>
           <a
             href="https://instagram.com/ilhmsap"
@@ -60,7 +62,7 @@ export default function Footer() {
 
         {/* Copyright */}
         <p className="text-xs">
-          © {new Date().getFullYear()} PokéDex · Data from{" "}
+          © {new Date().getFullYear()} PokéDex · {t("footer.data_from")}{" "}
           <a
             href="https://pokeapi.co"
             target="_blank"

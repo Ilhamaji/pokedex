@@ -3,41 +3,43 @@ import { Link } from "react-router-dom";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 import { useTheme } from "../context/ThemeContext";
-
-const TECH = [
-  { name: "React 18", icon: "⚛️", desc: "UI Framework" },
-  { name: "Vite", icon: "⚡", desc: "Build Tool" },
-  { name: "Tailwind CSS", icon: "🎨", desc: "Styling" },
-  { name: "PokéAPI", icon: "🔴", desc: "Pokémon Data" },
-  { name: "TCG API", icon: "🃏", desc: "Card Gallery" },
-  { name: "Axios", icon: "📡", desc: "HTTP Client" },
-];
-
-const FEATURES = [
-  {
-    icon: "🔍",
-    title: "Pokédex Lengkap",
-    desc: "Data lengkap 1,025+ Pokémon dari semua generasi — stats, tipe, kemampuan, dan deskripsi.",
-  },
-  {
-    icon: "🎴",
-    title: "TCG Card Gallery",
-    desc: "Galeri kartu Trading Card Game resmi berdasarkan Pokémon yang sedang dilihat, dengan scroll horizontal interaktif.",
-  },
-  {
-    icon: "⚡",
-    title: "Meta Deck TCG Pocket",
-    desc: "Rekomendasi deck kompetitif untuk Pokémon TCG Pocket, lengkap dengan partner tim dan strategi.",
-  },
-  {
-    icon: "🌙",
-    title: "Dark / Light Mode",
-    desc: "Toggle tema gelap atau terang — preferensi tersimpan otomatis untuk sesi berikutnya.",
-  },
-];
+import { useTranslation } from "react-i18next";
 
 export default function About() {
   const { dark } = useTheme();
+  const { t } = useTranslation();
+
+  const TECH = [
+    { name: "React 18", icon: "⚛️", desc: "UI Framework" },
+    { name: "Vite", icon: "⚡", desc: "Build Tool" },
+    { name: "Tailwind CSS", icon: "🎨", desc: "Styling" },
+    { name: "PokéAPI", icon: "🔴", desc: "Pokémon Data" },
+    { name: "TCG API", icon: "🃏", desc: "Card Gallery" },
+    { name: "Axios", icon: "📡", desc: "HTTP Client" },
+  ];
+
+  const FEATURES = [
+    {
+      icon: "🔍",
+      title: t("about.features.pokedex_title"),
+      desc: t("about.features.pokedex_desc"),
+    },
+    {
+      icon: "🎴",
+      title: t("about.features.tcg_title"),
+      desc: t("about.features.tcg_desc"),
+    },
+    {
+      icon: "⚡",
+      title: t("about.features.meta_title"),
+      desc: t("about.features.meta_desc"),
+    },
+    {
+      icon: "🌙",
+      title: t("about.features.theme_title"),
+      desc: t("about.features.theme_desc"),
+    },
+  ];
 
   return (
     <div
@@ -49,7 +51,7 @@ export default function About() {
         {/* Header */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-rose-100 text-rose-600 text-xs font-bold uppercase tracking-widest mb-6 border border-rose-200">
-            ✦ About This Project
+            {t("about.badge")}
           </div>
           <h1
             className={`text-5xl md:text-6xl font-black tracking-tight mb-4 ${dark ? "text-white" : "text-slate-900"}`}
@@ -59,9 +61,7 @@ export default function About() {
           <p
             className={`text-lg max-w-xl mx-auto leading-relaxed ${dark ? "text-slate-400" : "text-slate-600"}`}
           >
-            Aplikasi web Pokédex modern yang dibangun dengan React dan berbagai
-            API Pokémon, menampilkan data lengkap, galeri kartu TCG, dan
-            rekomendasi deck kompetitif.
+            {t("about.description")}
           </p>
         </div>
 
@@ -94,14 +94,12 @@ export default function About() {
               <p
                 className={`text-xs font-bold uppercase tracking-widest mb-1 ${dark ? "text-rose-400" : "text-rose-500"}`}
               >
-                Developer
+                {t("about.developer")}
               </p>
               <p
                 className={`text-sm leading-relaxed mb-4 max-w-md ${dark ? "text-slate-400" : "text-slate-600"}`}
               >
-                Pengembang web yang bersemangat dengan teknologi modern. Proyek
-                ini dibuat sebagai eksplorasi React, integrasi API publik, dan
-                desain UI/UX yang interaktif.
+                {t("about.dev_desc")}
               </p>
               <a
                 href="https://instagram.com/ilhmsap"
@@ -131,7 +129,7 @@ export default function About() {
         <h2
           className={`text-2xl font-black mb-6 ${dark ? "text-white" : "text-slate-900"}`}
         >
-          Fitur Utama
+          {t("about.main_features")}
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12">
           {FEATURES.map((f) => (
@@ -206,7 +204,7 @@ export default function About() {
                 d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
               />
             </svg>
-            Kembali ke PokéDex
+            {t("about.back_home")}
           </Link>
         </div>
       </main>

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import PokemonCard from "./PokemonCard";
 import { useTheme } from "../context/ThemeContext";
+import { useTranslation } from "react-i18next";
 
 export default function Body({ searchTerm }) {
   const [pokemons, setPokemons] = useState([]);
@@ -10,6 +11,7 @@ export default function Body({ searchTerm }) {
   );
   const [loading, setLoading] = useState(false);
   const { dark } = useTheme();
+  const { t } = useTranslation();
 
   useEffect(() => {
     async function fetchInitial() {
@@ -63,18 +65,18 @@ export default function Body({ searchTerm }) {
       <div className="max-w-7xl mx-auto mb-10 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
         <div>
           <p className="text-rose-500 font-bold uppercase tracking-widest text-xs mb-2">
-            {searchTerm ? "Hasil Pencarian" : "Pokédex Nasional"}
+            {searchTerm ? t("body.search_results") : t("body.pokedex_national")}
           </p>
           <h2 className={`text-4xl font-black leading-tight ${dark ? "text-white" : "text-slate-900"}`}>
             {searchTerm ? (
-              <>Menampilkan: <span className="text-rose-500 capitalize">{searchTerm}</span></>
+              <>{t("body.showing")}<span className="text-rose-500 capitalize">{searchTerm}</span></>
             ) : (
-              <>Semua <span className="text-rose-500">Pokémon</span></>
+              <>{t("body.all")}<span className="text-rose-500">{t("body.pokemon")}</span></>
             )}
           </h2>
         </div>
         <p className={`text-sm font-medium ${dark ? "text-slate-400" : "text-slate-500"}`}>
-          {pokemons.length} Pokémon ditampilkan
+          {pokemons.length} {t("body.count")}
         </p>
       </div>
 
@@ -92,9 +94,9 @@ export default function Body({ searchTerm }) {
       {pokemons.length === 0 && !loading && (
         <div className="flex flex-col items-center justify-center py-24 text-center">
           <div className="text-6xl mb-4">😕</div>
-          <p className={`text-2xl font-black mb-2 ${dark ? "text-white" : "text-slate-700"}`}>Tidak ditemukan</p>
+          <p className={`text-2xl font-black mb-2 ${dark ? "text-white" : "text-slate-700"}`}>{t("body.not_found")}</p>
           <p className={dark ? "text-slate-400" : "text-slate-500"}>
-            Pokémon <span className="font-bold">"{searchTerm}"</span> tidak ada di Pokédex.
+            {t("body.not_found_desc", { searchTerm })}
           </p>
         </div>
       )}
@@ -108,7 +110,7 @@ export default function Body({ searchTerm }) {
             style={{ background: "linear-gradient(135deg, #e11d48, #be123c)" }}
           >
             <span className="relative z-10 flex items-center gap-2">
-              Muat Lebih Banyak
+              {t("body.load_more")}
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 group-hover:translate-y-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>

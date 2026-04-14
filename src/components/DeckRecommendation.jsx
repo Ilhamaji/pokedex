@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { getDeckRecommendation } from "../data/metaDecks";
+import { useTranslation } from "react-i18next";
 
 export default function DeckRecommendation({ pokemonName, color, dark = false }) {
+  const { t } = useTranslation();
   const meta = getDeckRecommendation(pokemonName);
   const [partnerImages, setPartnerImages] = useState({});
 
@@ -31,8 +33,8 @@ export default function DeckRecommendation({ pokemonName, color, dark = false })
   if (!meta) return null;
 
   return (
-    <div className={`mt-10 backdrop-blur-xl rounded-3xl shadow-xl border w-full relative overflow-hidden transition-all duration-300 ${dark ? "bg-white/5 border-white/10" : "bg-white/80 border-white/60"}`}>
-      {/* Top Accent Bar */}
+    <div className={`mt-10 backdrop-blur-xl rounded-2xl shadow-xl border w-full relative overflow-hidden transition-all duration-300 ${dark ? "bg-white/5 border-white/10" : "bg-white/80 border-white/60"}`}>
+      {/* Structural Header Accent — clipped by overflow-hidden */}
       <div className="h-1.5 w-full bg-gradient-to-r from-rose-500 via-rose-400 to-rose-600"></div>
 
       {/* Content Padding */}
@@ -45,7 +47,7 @@ export default function DeckRecommendation({ pokemonName, color, dark = false })
             </svg>
           </div>
           <h3 className={`text-2xl font-black tracking-tight ${dark ? "text-white" : "text-slate-800"}`}>
-            TCG Pocket Meta Deck
+            {t("tcg.meta_title")}
           </h3>
         </div>
 
@@ -54,22 +56,22 @@ export default function DeckRecommendation({ pokemonName, color, dark = false })
           <div>
             <h4 className="text-xl font-bold mb-2 tracking-tight flex items-center gap-2" style={{ color }}>
               <span className="w-1.5 h-6 rounded-full" style={{ backgroundColor: color }}></span>
-              {meta.name}
+              {t(`decks.${pokemonName.toLowerCase()}.name`, { defaultValue: meta.name })}
             </h4>
             <p className={`leading-relaxed font-medium ${dark ? "text-slate-300" : "text-slate-700"}`}>
-              {meta.description}
+              {t(`decks.${pokemonName.toLowerCase()}.description`, { defaultValue: meta.description })}
             </p>
           </div>
 
           <div className={`pt-6 border-t ${dark ? "border-white/10" : "border-slate-100"}`}>
             <p className={`font-bold uppercase tracking-wider text-xs mb-4 ${dark ? "text-slate-400" : "text-slate-500"}`}>
-              Rekomendasi Partner Tim
+              {t("tcg.partners")}
             </p>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-4 pt-4 pb-2">
               {meta.partners.map((partner, index) => (
                 <div
                   key={index}
-                  className={`flex flex-col items-center justify-center p-3 rounded-2xl shadow-sm border min-w-[110px] hover:-translate-y-1.5 hover:shadow-md transition-all duration-300 ${dark ? "bg-white/10 border-white/20" : "bg-white border-slate-200/60"}`}
+                  className={`flex flex-col items-center justify-center p-3 rounded-2xl shadow-sm border min-w-[110px] hover:-translate-y-1.5 hover:shadow-md transition-all duration-300 relative hover:z-50 ${dark ? "bg-white/10 border-white/20" : "bg-white border-slate-200/60"}`}
                 >
                   {partnerImages[partner] ? (
                     <img

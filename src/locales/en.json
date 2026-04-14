@@ -1,0 +1,112 @@
+{
+  "nav": {
+    "search_placeholder": "Search Pokémon...",
+    "search_button": "Search",
+    "home": "Home",
+    "about": "About"
+  },
+  "hero": {
+    "badge": "Explore The World Of Pokémon",
+    "tagline": "Find complete info, TCG card galleries, to competitive deck recommendations for over ",
+    "tagline_highlight": "1,025+ Pokémon",
+    "search_placeholder": "Search Pokémon, e.g.: pikachu...",
+    "search_button": "Search",
+    "stats": {
+      "types": "Types",
+      "generations": "Generations"
+    },
+    "scroll": "Scroll"
+  },
+  "body": {
+    "search_results": "Search Results",
+    "pokedex_national": "National Pokédex",
+    "showing": "Showing: ",
+    "all": "All ",
+    "pokemon": "Pokémon",
+    "count": "Pokémon shown",
+    "not_found": "Not found",
+    "not_found_desc": "Pokémon \"{{searchTerm}}\" is not in the Pokédex.",
+    "load_more": "Load More"
+  },
+  "details": {
+    "back_to_pokedex": "Back to Pokédex",
+    "base_stats": "Base Stats",
+    "profile": "Profile",
+    "height": "Height",
+    "weight": "Weight",
+    "abilities": "Abilities",
+    "hidden": "Hidden",
+    "total": "Total",
+    "stats": {
+      "hp": "HP",
+      "atk": "Atk",
+      "def": "Def",
+      "sp_atk": "Sp. Atk",
+      "sp_def": "Sp. Def",
+      "spd": "Speed"
+    }
+  },
+  "tcg": {
+    "title": "Trading Card Game Gallery",
+    "meta_title": "TCG Pocket Meta Deck",
+    "partners": "Recommended Team Partners",
+    "no_cards": "No TCG cards found for this Pokémon.",
+    "scroll_hint": "Scroll horizontally to explore collectible cards for {{pokemonName}}."
+  },
+  "about": {
+    "badge": "✦ About This Project",
+    "description": "A modern Pokédex web application built with React and various Pokémon APIs, featuring full data, TCG card galleries, and competitive deck recommendations.",
+    "developer": "Developer",
+    "dev_desc": "A passionate web developer with modern technology. This project was created as an exploration of React, public API integration, and interactive UI/UX design.",
+    "main_features": "Main Features",
+    "back_home": "Back to PokéDex",
+    "features": {
+      "pokedex_title": "Complete Pokédex",
+      "pokedex_desc": "Complete data of 1,025+ Pokémon from all generations — stats, types, abilities, and descriptions.",
+      "tcg_title": "TCG Card Gallery",
+      "tcg_desc": "Official Trading Card Game card gallery based on the Pokémon being viewed, with interactive horizontal scroll.",
+      "meta_title": "TCG Pocket Meta Deck",
+      "meta_desc": "Competitive deck recommendations for Pokémon TCG Pocket, complete with team partners and strategy.",
+      "theme_title": "Dark / Light Mode",
+      "theme_desc": "Toggle dark or light theme — preferences automatically saved for the next session."
+    }
+  },
+  "footer": {
+    "tagline": "Explore over 1,025+ Pokémon — Built with PokeAPI & TCG API",
+    "data_from": "Data from"
+  },
+  "decks": {
+    "pikachu": {
+      "name": "Pikachu EX Aggro (PTCG Pocket)",
+      "description": "Super aggressive deck relying on Pikachu EX and fast pressure in the early game. Highly feared in the current Pokémon TCG Pocket meta."
+    },
+    "mewtwo": {
+      "name": "Mewtwo EX Control (PTCG Pocket)",
+      "description": "Tier 1 deck that dominates the late game. Gardevoir is used to accelerate Psychic energy attachment to Mewtwo EX."
+    },
+    "charizard": {
+      "name": "Charizard EX Ramp (PTCG Pocket)",
+      "description": "Focus on defending in the early game to gather energy, then use Moltres EX to accelerate the setup of Charizard EX which can deal massive damage for instant KOs."
+    },
+    "starmie": {
+      "name": "Starmie EX / Articuno (PTCG Pocket)",
+      "description": "Very fast water deck relying on Misty to charge energy in a single turn. With luck, this deck can win in the first few turns."
+    },
+    "articuno": {
+      "name": "Starmie EX / Articuno (PTCG Pocket)",
+      "description": "Very fast water deck relying on Misty to charge energy in a single turn. With luck, this deck can win in the first few turns."
+    },
+    "venusaur": {
+      "name": "Venusaur EX Tank (PTCG Pocket)",
+      "description": "Thanks to very high HP and healing from Erika, Venusaur becomes a defensive wall that is very difficult for aggro decks to take down."
+    },
+    "gengar": {
+      "name": "Gengar ex Disruption",
+      "description": "A deck that manipulates the opponent's hand and field, Gengar is often used for status conditions and damage spreading."
+    },
+    "arcanine": {
+      "name": "Arcanine ex Turbo",
+      "description": "Arcanine has huge damage but quickly discards its own energy. Needs a fast energy acceleration partner."
+    }
+  }
+}

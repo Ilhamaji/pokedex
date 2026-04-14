@@ -7,8 +7,10 @@ import { getTypeColor, getBgColor } from "../utils/colors";
 import TcgCards from "../components/TcgCards";
 import DeckRecommendation from "../components/DeckRecommendation";
 import { useTheme } from "../context/ThemeContext";
+import { useTranslation } from "react-i18next";
 
 export default function Details() {
+  const { t } = useTranslation();
   const { name } = useParams();
   const [data, setData] = useState(null);
   const [species, setSpecies] = useState(null);
@@ -86,7 +88,7 @@ export default function Details() {
               d="M10 19l-7-7m0 0l7-7m-7 7h18"
             />
           </svg>
-          Back to Pokedex
+          {t("details.back_to_pokedex")}
         </Link>
 
         {/* Header Info */}
@@ -136,13 +138,17 @@ export default function Details() {
           {/* Base Stats */}
           <div className={`backdrop-blur-xl rounded-3xl p-8 shadow-xl border transition-colors duration-300 ${dark ? "bg-white/5 border-white/10" : "bg-white/80 border-white/60"}`}>
             <h3 className="text-2xl font-black mb-6" style={{ color: color }}>
-              Base Stats
+              {t("details.base_stats")}
             </h3>
             <div className="flex flex-col gap-4">
               {data.stats.map((stat) => {
                 let statName = stat.stat.name;
-                if (statName === "special-attack") statName = "Sp. Atk";
-                if (statName === "special-defense") statName = "Sp. Def";
+                if (statName === "hp") statName = t("details.stats.hp");
+                if (statName === "attack") statName = t("details.stats.atk");
+                if (statName === "defense") statName = t("details.stats.def");
+                if (statName === "special-attack") statName = t("details.stats.sp_atk");
+                if (statName === "special-defense") statName = t("details.stats.sp_def");
+                if (statName === "speed") statName = t("details.stats.spd");
 
                 return (
                   <div key={stat.stat.name} className="flex items-center gap-4">
@@ -166,7 +172,7 @@ export default function Details() {
               })}
               <div className="flex items-center gap-4 mt-2 pt-4 border-t border-slate-200/60">
                 <span className="w-20 text-sm font-black uppercase text-slate-700">
-                  Total
+                  {t("details.total")}
                 </span>
                 <span className={`w-8 text-right font-black ${dark ? "text-white" : "text-slate-800"}`}>
                   {data.stats.reduce((acc, curr) => acc + curr.base_stat, 0)}
@@ -179,23 +185,23 @@ export default function Details() {
           {/* Profile */}
           <div className={`backdrop-blur-xl rounded-3xl p-8 shadow-xl border transition-colors duration-300 ${dark ? "bg-white/5 border-white/10" : "bg-white/80 border-white/60"}`}>
             <h3 className="text-2xl font-black mb-6" style={{ color: color }}>
-              Profile
+              {t("details.profile")}
             </h3>
             <div className="grid grid-cols-2 gap-y-8 gap-x-4">
               <div>
-                <p className={`font-bold uppercase tracking-wider text-xs mb-2 ${dark ? "text-slate-400" : "text-slate-500"}`}>Height</p>
+                <p className={`font-bold uppercase tracking-wider text-xs mb-2 ${dark ? "text-slate-400" : "text-slate-500"}`}>{t("details.height")}</p>
                 <p className={`font-black text-lg rounded-xl shadow-sm border px-4 py-2 inline-block ${dark ? "bg-white/10 border-white/20 text-white" : "bg-white/60 border-white/60 text-slate-800"}`}>
                   {(data.height / 10).toFixed(1)} m
                 </p>
               </div>
               <div>
-                <p className={`font-bold uppercase tracking-wider text-xs mb-2 ${dark ? "text-slate-400" : "text-slate-500"}`}>Weight</p>
+                <p className={`font-bold uppercase tracking-wider text-xs mb-2 ${dark ? "text-slate-400" : "text-slate-500"}`}>{t("details.weight")}</p>
                 <p className={`font-black text-lg rounded-xl shadow-sm border px-4 py-2 inline-block ${dark ? "bg-white/10 border-white/20 text-white" : "bg-white/60 border-white/60 text-slate-800"}`}>
                   {(data.weight / 10).toFixed(1)} kg
                 </p>
               </div>
               <div className="col-span-2">
-                <p className={`font-bold uppercase tracking-wider text-xs mb-3 ${dark ? "text-slate-400" : "text-slate-500"}`}>Abilities</p>
+                <p className={`font-bold uppercase tracking-wider text-xs mb-3 ${dark ? "text-slate-400" : "text-slate-500"}`}>{t("details.abilities")}</p>
                 <div className="flex flex-wrap gap-2">
                   {data.abilities.map((a) => (
                     <span
@@ -208,7 +214,7 @@ export default function Details() {
                     >
                       {a.ability.name.replace("-", " ")}{" "}
                       {a.is_hidden && (
-                        <span className="text-xs font-semibold opacity-60 ml-1">(Hidden)</span>
+                        <span className="text-xs font-semibold opacity-60 ml-1">({t("details.hidden")})</span>
                       )}
                     </span>
                   ))}

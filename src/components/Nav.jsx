@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useTheme } from "../context/ThemeContext";
+import { useTranslation } from "react-i18next";
+import LanguageSelector from "./LanguageSelector";
 
 export default function Nav({ inputValue, setInputValue, handleSearch }) {
+  const { t } = useTranslation();
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const isHome = location.pathname === "/";
@@ -69,7 +72,7 @@ export default function Nav({ inputValue, setInputValue, handleSearch }) {
                       ? "bg-white/10 border-white/20 text-white placeholder-white/40"
                       : "bg-white border-slate-200 text-slate-800 placeholder-slate-400"
                   }`}
-                  placeholder="Cari Pokémon..."
+                  placeholder={t("nav.search_placeholder")}
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
                 />
@@ -78,7 +81,7 @@ export default function Nav({ inputValue, setInputValue, handleSearch }) {
                 type="submit"
                 className="px-5 py-2.5 bg-gradient-to-r from-rose-500 to-rose-600 hover:from-rose-400 hover:to-rose-500 text-white text-sm font-bold rounded-2xl shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200 flex-shrink-0"
               >
-                Cari
+                {t("nav.search_button")}
               </button>
             </form>
           )}
@@ -120,6 +123,9 @@ export default function Nav({ inputValue, setInputValue, handleSearch }) {
               </svg>
             )}
           </button>
+
+          {/* Language Selector */}
+          <LanguageSelector dark={dark} />
 
         </div>
       </div>

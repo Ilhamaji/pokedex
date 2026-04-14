@@ -1,0 +1,112 @@
+{
+  "nav": {
+    "search_placeholder": "Cari Pokémon...",
+    "search_button": "Cari",
+    "home": "Beranda",
+    "about": "Tentang"
+  },
+  "hero": {
+    "badge": "Jelajahi Dunia Pokémon",
+    "tagline": "Temukan info lengkap, galeri kartu TCG, hingga rekomendasi deck kompetitif untuk lebih dari ",
+    "tagline_highlight": "1.000+ Pokémon",
+    "search_placeholder": "Cari Pokémon, misal: pikachu...",
+    "search_button": "Cari",
+    "stats": {
+      "types": "Tipe",
+      "generations": "Generasi"
+    },
+    "scroll": "Gulir"
+  },
+  "body": {
+    "search_results": "Hasil Pencarian",
+    "pokedex_national": "Pokédex Nasional",
+    "showing": "Menampilkan: ",
+    "all": "Semua ",
+    "pokemon": "Pokémon",
+    "count": "Pokémon ditampilkan",
+    "not_found": "Tidak ditemukan",
+    "not_found_desc": "Pokémon \"{{searchTerm}}\" tidak ada di Pokédex.",
+    "load_more": "Muat Lebih Banyak"
+  },
+  "details": {
+    "back_to_pokedex": "Kembali ke Pokédex",
+    "base_stats": "Statistik Dasar",
+    "profile": "Profil",
+    "height": "Tinggi",
+    "weight": "Berat",
+    "abilities": "Kemampuan",
+    "hidden": "Tersembunyi",
+    "total": "Total",
+    "stats": {
+      "hp": "HP",
+      "atk": "Atk",
+      "def": "Def",
+      "sp_atk": "Sp. Atk",
+      "sp_def": "Sp. Def",
+      "spd": "Speed"
+    }
+  },
+  "tcg": {
+    "title": "Galeri Kartu Trading Card Game",
+    "meta_title": "Meta Deck TCG Pocket",
+    "partners": "Rekomendasi Partner Tim",
+    "no_cards": "Tidak ada kartu TCG ditemukan untuk Pokémon ini.",
+    "scroll_hint": "Scroll horizontal untuk menjelajahi kartu koleksi {{pokemonName}}."
+  },
+  "about": {
+    "badge": "✦ Tentang Proyek Ini",
+    "description": "Aplikasi web Pokédex modern yang dibangun dengan React dan berbagai API Pokémon, menampilkan data lengkap, galeri kartu TCG, dan rekomendasi deck kompetitif.",
+    "developer": "Pengembang",
+    "dev_desc": "Pengembang web yang bersemangat dengan teknologi modern. Proyek ini dibuat sebagai eksplorasi React, integrasi API publik, dan desain UI/UX yang interaktif.",
+    "main_features": "Fitur Utama",
+    "back_home": "Kembali ke PokéDex",
+    "features": {
+      "pokedex_title": "Pokédex Lengkap",
+      "pokedex_desc": "Data lengkap 1,025+ Pokémon dari semua generasi — stats, tipe, kemampuan, dan deskripsi.",
+      "tcg_title": "TCG Card Gallery",
+      "tcg_desc": "Galeri kartu Trading Card Game resmi berdasarkan Pokémon yang sedang dilihat, dengan scroll horizontal interaktif.",
+      "meta_title": "TCG Pocket Meta Deck",
+      "meta_desc": "Rekomendasi deck kompetitif untuk Pokémon TCG Pocket, lengkap dengan partner tim dan strategi.",
+      "theme_title": "Dark / Light Mode",
+      "theme_desc": "Toggle tema gelap atau terang — preferensi tersimpan otomatis untuk sesi berikutnya."
+    }
+  },
+  "footer": {
+    "tagline": "Jelajahi lebih dari 1.025+ Pokémon — Dibuat dengan PokeAPI & TCG API",
+    "data_from": "Data dari"
+  },
+  "decks": {
+    "pikachu": {
+      "name": "Pikachu EX Aggro (PTCG Pocket)",
+      "description": "Deck super agresif yang mengandalkan Pikachu EX dan gempuran cepat di Early Game. Sangat ditakuti di meta Pokemon TCG Pocket saat ini."
+    },
+    "mewtwo": {
+      "name": "Mewtwo EX Control (PTCG Pocket)",
+      "description": "Deck tier 1 yang sangat mendominasi late-game. Gardevoir digunakan untuk mempercepat pengisian energi Psychic ke Mewtwo EX."
+    },
+    "charizard": {
+      "name": "Charizard EX Ramp (PTCG Pocket)",
+      "description": "Fokus bertahan di awal game untuk mengumpulkan energi, lalu menggunakan Moltres EX untuk mempercepat setup Charizard EX yang bisa menghantam hingga seketika KO."
+    },
+    "starmie": {
+      "name": "Starmie EX / Articuno (PTCG Pocket)",
+      "description": "Deck air yang sangat cepat dan mengandalkan Misty untuk mengisi energi dalam satu putaran. Jika beruntung, deck ini bisa menang di satu giliran pertama."
+    },
+    "articuno": {
+      "name": "Starmie EX / Articuno (PTCG Pocket)",
+      "description": "Deck air yang sangat cepat dan mengandalkan Misty untuk mengisi energi dalam satu putaran. Jika beruntung, deck ini bisa menang di satu giliran pertama."
+    },
+    "venusaur": {
+      "name": "Venusaur EX Tank (PTCG Pocket)",
+      "description": "Berkat HP yang sangat tinggi dan healing dari Erika, Venusaur menjadi tembok pertahanan yang sangat sulit dibidik oleh deck aggro."
+    },
+    "gengar": {
+      "name": "Gengar ex Disruption",
+      "description": "Deck yang memanipulasi tangan dan field lawan, Gengar sering digunakan untuk status condition dan damage spread."
+    },
+    "arcanine": {
+      "name": "Arcanine ex Turbo",
+      "description": "Arcanine memiliki damage yang besar namun cepat menghancurkan energinya sendiri. Butuh partner pengisi energi cepat."
+    }
+  }
+}

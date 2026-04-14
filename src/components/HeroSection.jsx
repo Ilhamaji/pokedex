@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useTheme } from "../context/ThemeContext";
+import { useTranslation } from "react-i18next";
 
 const FEATURED = [
   { name: "Charizard", id: 6 },
@@ -18,6 +19,7 @@ export default function HeroSection({ inputValue, setInputValue, handleSearch })
   const [fading, setFading] = useState(false);
   const intervalRef = useRef(null);
   const { dark } = useTheme();
+  const { t } = useTranslation();
 
   const switchTo = (i) => {
     if (i === idx) return;
@@ -78,7 +80,7 @@ export default function HeroSection({ inputValue, setInputValue, handleSearch })
         <div className="flex-1 text-center lg:text-left animate-slide-up">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-rose-100 text-rose-600 text-xs font-bold uppercase tracking-widest mb-6 border border-rose-200">
             <span className="w-1.5 h-1.5 rounded-full bg-rose-500 animate-pulse" />
-            Explore The World Of Pokémon
+            {t("hero.badge")}
           </div>
 
           <h1 className={`text-6xl md:text-7xl lg:text-8xl font-black leading-[0.95] mb-6 tracking-tight ${dark ? "text-white" : "text-slate-800"}`}>
@@ -96,8 +98,8 @@ export default function HeroSection({ inputValue, setInputValue, handleSearch })
           </h1>
 
           <p className={`text-lg md:text-xl max-w-xl mx-auto lg:mx-0 mb-10 leading-relaxed ${dark ? "text-slate-400" : "text-slate-500"}`}>
-            Temukan info lengkap, galeri kartu TCG, hingga rekomendasi deck kompetitif untuk lebih dari{" "}
-            <span className={`font-semibold ${dark ? "text-slate-200" : "text-slate-700"}`}>1.000+ Pokémon</span>.
+            {t("hero.tagline")}
+            <span className={`font-semibold ${dark ? "text-slate-200" : "text-slate-700"}`}>{t("hero.tagline_highlight")}</span>.
           </p>
 
           {/* Search */}
@@ -115,7 +117,7 @@ export default function HeroSection({ inputValue, setInputValue, handleSearch })
                 type="text"
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
-                placeholder="Cari Pokémon, misal: pikachu..."
+                placeholder={t("hero.search_placeholder")}
                 className={`w-full pl-12 pr-4 py-4 border rounded-2xl focus:outline-none focus:ring-2 focus:ring-rose-400 focus:border-transparent shadow-lg text-base transition-all duration-300 ${dark ? "bg-white/10 border-white/20 text-white placeholder-white/40" : "bg-white border-slate-200 text-slate-800 placeholder-slate-400"}`}
               />
             </div>
@@ -124,13 +126,13 @@ export default function HeroSection({ inputValue, setInputValue, handleSearch })
               className="px-7 py-4 rounded-2xl text-white font-bold shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:scale-95 transition-all duration-200 flex-shrink-0 whitespace-nowrap"
               style={{ background: "linear-gradient(135deg, #f43f5e, #e11d48)" }}
             >
-              Cari
+              {t("hero.search_button")}
             </button>
           </form>
 
           {/* Stats */}
           <div className="flex gap-8 mt-10 justify-center lg:justify-start animate-slide-up delay-300">
-            {[["1,025+", "Pokémon"], ["18", "Tipe"], ["9", "Generasi"]].map(([num, label]) => (
+            {[["1,025+", "Pokémon"], ["18", t("hero.stats.types")], ["9", t("hero.stats.generations")]].map(([num, label]) => (
               <div key={label}>
                 <p className={`text-3xl font-black ${dark ? "text-white" : "text-slate-800"}`}>{num}</p>
                 <p className={`text-sm ${dark ? "text-slate-400" : "text-slate-500"}`}>{label}</p>
@@ -196,7 +198,7 @@ export default function HeroSection({ inputValue, setInputValue, handleSearch })
 
       {/* Scroll indicator */}
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 opacity-40 animate-bounce">
-        <p className="text-slate-600 text-xs uppercase tracking-widest font-semibold">Scroll</p>
+        <p className="text-slate-600 text-xs uppercase tracking-widest font-semibold">{t("hero.scroll")}</p>
         <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-slate-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
         </svg>
