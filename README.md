@@ -4,7 +4,7 @@
 
 A vibrant and interactive Pokémon encyclopedia. Browse, search, and view detailed stats for 1,025+ Pokémon — complete with a TCG card gallery and competitive deck recommendations for Pokémon TCG Pocket.
 
-**Live Demo:** [pokemondexs.netlify.app](pokemondexs.netlify.app)
+**Live Demo:** https://pokemondexs.netlify.app
 
 ---
 
