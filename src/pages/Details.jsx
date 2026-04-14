@@ -72,23 +72,31 @@ export default function Details() {
         {/* Back button */}
         <Link
           to="/"
-          className="inline-flex items-center text-slate-800 font-semibold hover:text-slate-900 mb-6 group transition-colors bg-white/40 backdrop-blur-sm px-4 py-2 rounded-xl shadow-sm hover:shadow-md"
+          className={`inline-flex items-center mb-8 group transition-all duration-300 px-5 py-2.5 rounded-2xl shadow-sm hover:shadow-lg backdrop-blur-md border ${
+            dark 
+              ? "bg-white/5 border-white/10 text-white hover:bg-white/10 hover:border-rose-500/50" 
+              : "bg-white/40 border-white/80 text-slate-800 hover:bg-white/60 hover:border-rose-400/50"
+          }`}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5 mr-2 transform group-hover:-translate-x-1 transition-transform"
+            className={`h-5 w-5 mr-3 transform group-hover:-translate-x-1.5 transition-transform duration-300 ${
+              dark ? "text-rose-400" : "text-rose-600"
+            }`}
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
+            strokeWidth={2.5}
           >
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
-              strokeWidth={2}
               d="M10 19l-7-7m0 0l7-7m-7 7h18"
             />
           </svg>
-          {t("details.back_to_pokedex")}
+          <span className="font-bold tracking-tight">
+            {t("details.back_to_pokedex")}
+          </span>
         </Link>
 
         {/* Header Info */}

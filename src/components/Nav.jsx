@@ -33,7 +33,7 @@ export default function Nav({ inputValue, setInputValue, handleSearch }) {
         boxShadow: navBg ? "0 4px 20px rgba(0,0,0,0.08)" : "none",
       }}
     >
-      <div className="max-w-7xl mx-auto px-5 md:px-10 py-3.5 flex items-center justify-between gap-4">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-10 py-3 flex items-center justify-between gap-2 sm:gap-4">
 
         {/* Logo — left */}
         <Link
@@ -86,20 +86,6 @@ export default function Nav({ inputValue, setInputValue, handleSearch }) {
             </form>
           )}
 
-          {/* Back button — only on detail pages */}
-          {!handleSearch && (
-            <Link
-              to="/"
-              className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-xl font-semibold text-sm transition-colors duration-200 ${
-                dark ? "bg-white/10 text-white hover:bg-white/20" : "bg-slate-100 text-slate-600 hover:bg-slate-200"
-              }`}
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-              </svg>
-              PokéDex
-            </Link>
-          )}
 
           {/* Dark / Light toggle */}
           <button
