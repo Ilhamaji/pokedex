@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Top half (red) -->
+  <path d="M50 0C22.4 0 0 22.4 0 50h100C100 22.4 77.6 0 50 0z" fill="#e11d48"/>
+  <!-- Bottom half (white) -->
+  <path d="M0 50c0 27.6 22.4 50 50 50s50-22.4 50-50H0z" fill="#ffffff"/>
+  <!-- Center band -->
+  <rect x="0" y="45" width="100" height="10" fill="#1e293b"/>
+  <!-- Center circle outer -->
+  <circle cx="50" cy="50" r="15" fill="#1e293b"/>
+  <!-- Center circle inner -->
+  <circle cx="50" cy="50" r="10" fill="#ffffff"/>
+  <!-- Center circle dot -->
+  <circle cx="50" cy="50" r="4" fill="#e11d48"/>
+</svg>
