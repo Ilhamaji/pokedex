@@ -2,7 +2,7 @@
 
 # Pokédex
 
-Ensiklopedia Pokémon interaktif — **1.025+ Pokémon dari 9 generasi**, lengkap dengan galeri kartu TCG dan rekomendasi deck meta Pokémon TCG Pocket.
+An interactive Pokémon encyclopedia — **1,025+ Pokémon across 9 generations**, with a TCG card gallery and meta deck recommendations for Pokémon TCG Pocket.
 
 [![Status](https://img.shields.io/badge/status-complete-brightgreen?style=flat-square)](#)
 [![React](https://img.shields.io/badge/React-18-61DAFB?style=flat-square&logo=react&logoColor=black)](https://react.dev)
@@ -11,39 +11,41 @@ Ensiklopedia Pokémon interaktif — **1.025+ Pokémon dari 9 generasi**, lengka
 
 **Demo:** [pokemondexs.netlify.app](https://pokemondexs.netlify.app)
 
+**English** · [Bahasa Indonesia](README.id.md)
+
 </div>
 
 ---
 
-## Tentang
+## About
 
-Pokédex yang mencakup **seluruh 9 generasi** — bukan hanya Gen 1. Dibangun sebagai project portfolio untuk mengeksplorasi data fetching berskala besar, caching, i18n, dan animasi tanpa membebani browser.
+A Pokédex covering **all 9 generations**, not just Gen 1. It was built as a portfolio project to explore large-scale data fetching, caching, i18n, and animation without overwhelming the browser.
 
-## Fitur
+## Features
 
-- **Seluruh katalog** — 1.025+ Pokémon, bukan hanya Gen 1 (`pokemon?limit` tanpa batas ke PokéAPI).
-- **Pencarian** berdasarkan nama.
-- **Filter per generasi dan per tipe** lewat `FilterBar` (`POKEMON_TYPES`).
-- **Halaman detail:** base stats, tipe, ability, tinggi, berat, dan deskripsi Pokédex.
-- **Galeri kartu TCG** dengan scroll horizontal dan efek hover di kartu.
-- **Rekomendasi deck meta** untuk Pokémon TCG Pocket, datanya di `src/data/metaDecks.js`.
-- **English & Bahasa Indonesia** (`src/locales/en.json`, `id.json`).
-- **Dark / light mode**, preferensi disimpan di `localStorage`.
+- **The whole catalogue** — 1,025+ Pokémon via an unbounded `pokemon?limit` call to PokéAPI.
+- **Search** by name.
+- **Filter by generation and by type** in `FilterBar` (`POKEMON_TYPES`).
+- **Detail view:** base stats, types, abilities, height, weight, and Pokédex description.
+- **TCG card gallery** with horizontal scrolling and hover effects on each card.
+- **Meta deck recommendations** for Pokémon TCG Pocket, defined in `src/data/metaDecks.js`.
+- **English and Bahasa Indonesia** (`src/locales/en.json`, `id.json`).
+- **Dark / light mode**, with the preference stored in `localStorage`.
 
 ## Tech Stack
 
-| Bagian | Teknologi |
+| Layer | Technology |
 | --- | --- |
 | Framework | React 18 + Vite |
 | Styling | Tailwind CSS |
-| Data Pokémon | [PokéAPI v2](https://pokeapi.co) |
-| Data kartu | [Pokémon TCG API v2](https://pokemontcg.io) |
+| Pokémon data | [PokéAPI v2](https://pokeapi.co) |
+| Card data | [Pokémon TCG API v2](https://pokemontcg.io) |
 | i18n | `i18next` + `react-i18next` |
-| Deploy | Netlify / GitHub Pages |
+| Deployment | Netlify / GitHub Pages |
 
-## Menjalankan
+## Getting Started
 
-### 1. Clone & install
+### 1. Clone and install
 
 ```bash
 git clone https://github.com/Ilhamaji/pokedex.git
@@ -53,44 +55,44 @@ npm install
 
 ### 2. API key
 
-Dapatkan API key gratis dari [pokemontcg.io](https://pokemontcg.io), lalu:
+Get a free API key from [pokemontcg.io](https://pokemontcg.io), then:
 
 ```env
 VITE_POKEMON_TCG_API_KEY=your_key_here
 ```
 
-### 3. Jalankan
+### 3. Run
 
 ```bash
 npm run dev
 ```
 
-### 4. Build produksi
+### 4. Production build
 
 ```bash
 npm run build
 npm run preview
 ```
 
-## Struktur
+## Project Layout
 
 ```
 src/
   components/
-    Body.jsx                 # grid utama Pokémon
-    PokemonCard.jsx          # kartu individual
-    FilterBar.jsx            # filter tipe & generasi
-    TcgCards.jsx             # galeri kartu TCG
-    DeckRecommendation.jsx   # rekomendasi deck meta
+    Body.jsx                 # main Pokémon grid
+    PokemonCard.jsx          # individual card
+    FilterBar.jsx            # type and generation filter
+    TcgCards.jsx             # TCG card gallery
+    DeckRecommendation.jsx   # meta deck recommendations
     HeroSection.jsx          # landing hero
-    LanguageSelector.jsx     # switch EN/ID
+    LanguageSelector.jsx     # EN/ID switch
     Nav.jsx / Footer.jsx
   context/ThemeContext.jsx   # dark/light mode
-  data/metaDecks.js          # data deck meta
-  locales/{en,id}.json       # terjemahan
+  data/metaDecks.js          # meta deck data
+  locales/{en,id}.json       # translations
 ```
 
-## Sumber Data
+## Data Sources
 
 ```http
 GET https://pokeapi.co/api/v2/pokemon
@@ -100,14 +102,14 @@ GET https://api.pokemontcg.io/v2/cards
 
 ## Disclaimer
 
-Project buatan penggemar. Pokémon dan semua nama terkait adalah merek dagang Nintendo / Game Freak.
+Fan-made project. Pokémon and all related names are trademarks of Nintendo / Game Freak.
 
-## Lisensi
+## License
 
 MIT.
 
 ---
 
 <div align="center">
-Dibuat oleh <a href="https://github.com/Ilhamaji">Ilham Aji</a>
+Built by <a href="https://github.com/Ilhamaji">Ilham Aji</a>
 </div>
